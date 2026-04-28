@@ -88,23 +88,13 @@ final class SignupViewController: AuthScreenViewController {
             let password = passwordField.text ?? ""
             let confirmPassword = confirmPasswordField.text ?? ""
 
-            guard !name.isEmpty else {
-                showMessage(AuthError.invalidName.localizedDescription, in: messageLabel)
-                return
-            }
-
-            guard isValidEmail(email) else {
-                showMessage(AuthError.invalidEmail.localizedDescription, in: messageLabel)
-                return
-            }
-
-            guard password.count >= 8 else {
-                showMessage(AuthError.invalidPassword.localizedDescription, in: messageLabel)
-                return
-            }
-
-            guard password == confirmPassword else {
-                showMessage(AuthError.passwordsDoNotMatch.localizedDescription, in: messageLabel)
+            if let validationError = AuthInputValidator.validateSignup(
+                name: name,
+                email: email,
+                password: password,
+                confirmPassword: confirmPassword
+            ) {
+                showMessage(validationError.localizedDescription, in: messageLabel)
                 return
             }
 

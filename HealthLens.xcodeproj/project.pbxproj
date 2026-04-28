@@ -6,8 +6,32 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0298BBE9ABC8BB826B1D2997 /* RemoteAuthServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D707F6ABB8157C9C3946D388 /* RemoteAuthServiceTests.swift */; };
+		1BE716F05FC4D948BB2AB9E3 /* MockAuthServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD7DB30F25973965909B2A /* MockAuthServiceTests.swift */; };
+		A8B7996AF690AC6BA143BEF5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E152C32C306FE50513260D /* XCTest.framework */; };
+		CF4B43996722889E6FC8DB61 /* AuthInputValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8596510DEAEE6514BF481527 /* AuthInputValidatorTests.swift */; };
+		FCB9D1710C7A6592399436FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBE858A277AEECDB797EF6C /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		828418E218C1193BF9EA6A97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2FA20EF2F9F4D8E00B17138 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C2FA20F62F9F4D8E00B17138;
+			remoteInfo = HealthLens;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1EBE858A277AEECDB797EF6C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		50AD7DB30F25973965909B2A /* MockAuthServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MockAuthServiceTests.swift; sourceTree = "<group>"; };
+		68B43892548542D3298C3A23 /* HealthLensTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthLensTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8596510DEAEE6514BF481527 /* AuthInputValidatorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthInputValidatorTests.swift; sourceTree = "<group>"; };
+		93E152C32C306FE50513260D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = System/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
 		C2FA20F72F9F4D8E00B17138 /* HealthLens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthLens.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D707F6ABB8157C9C3946D388 /* RemoteAuthServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RemoteAuthServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -32,6 +56,15 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5362F80717F08BC3EE159FAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCB9D1710C7A6592399436FE /* Foundation.framework in Frameworks */,
+				A8B7996AF690AC6BA143BEF5 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2FA20F42F9F4D8E00B17138 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -42,11 +75,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AE2884CBA60E6EBE87BA42C /* HealthLensTests */ = {
+			isa = PBXGroup;
+			children = (
+				8596510DEAEE6514BF481527 /* AuthInputValidatorTests.swift */,
+				50AD7DB30F25973965909B2A /* MockAuthServiceTests.swift */,
+				D707F6ABB8157C9C3946D388 /* RemoteAuthServiceTests.swift */,
+			);
+			name = HealthLensTests;
+			sourceTree = "<group>";
+		};
+		48C0514B87B51FC34915CC2A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E0C20C25FCF573AF434C8E5 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E0C20C25FCF573AF434C8E5 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1EBE858A277AEECDB797EF6C /* Foundation.framework */,
+				93E152C32C306FE50513260D /* XCTest.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		C2FA20EE2F9F4D8E00B17138 = {
 			isa = PBXGroup;
 			children = (
 				C2FA20F92F9F4D8E00B17138 /* HealthLens */,
 				C2FA20F82F9F4D8E00B17138 /* Products */,
+				48C0514B87B51FC34915CC2A /* Frameworks */,
+				0AE2884CBA60E6EBE87BA42C /* HealthLensTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				C2FA20F72F9F4D8E00B17138 /* HealthLens.app */,
+				68B43892548542D3298C3A23 /* HealthLensTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +124,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B23C97D6057FC1D61E818355 /* HealthLensTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4AF0DB2D1F6717BD749A5D3 /* Build configuration list for PBXNativeTarget "HealthLensTests" */;
+			buildPhases = (
+				4182853B368636C15DE6EBCE /* Sources */,
+				5362F80717F08BC3EE159FAB /* Frameworks */,
+				2C9208DB0A9D5EDB74327FFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				705298A8E77E6C79D52F0F17 /* PBXTargetDependency */,
+			);
+			name = HealthLensTests;
+			productName = HealthLensTests;
+			productReference = 68B43892548542D3298C3A23 /* HealthLensTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C2FA20F62F9F4D8E00B17138 /* HealthLens */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2FA210A2F9F4D9000B17138 /* Build configuration list for PBXNativeTarget "HealthLens" */;
@@ -77,8 +158,6 @@
 				C2FA20F92F9F4D8E00B17138 /* HealthLens */,
 			);
 			name = HealthLens;
-			packageProductDependencies = (
-			);
 			productName = HealthLens;
 			productReference = C2FA20F72F9F4D8E00B17138 /* HealthLens.app */;
 			productType = "com.apple.product-type.application";
@@ -113,11 +192,19 @@
 			projectRoot = "";
 			targets = (
 				C2FA20F62F9F4D8E00B17138 /* HealthLens */,
+				B23C97D6057FC1D61E818355 /* HealthLensTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2C9208DB0A9D5EDB74327FFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2FA20F52F9F4D8E00B17138 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,6 +215,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4182853B368636C15DE6EBCE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF4B43996722889E6FC8DB61 /* AuthInputValidatorTests.swift in Sources */,
+				1BE716F05FC4D948BB2AB9E3 /* MockAuthServiceTests.swift in Sources */,
+				0298BBE9ABC8BB826B1D2997 /* RemoteAuthServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2FA20F32F9F4D8E00B17138 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,7 +234,48 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		705298A8E77E6C79D52F0F17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HealthLens;
+			target = C2FA20F62F9F4D8E00B17138 /* HealthLens */;
+			targetProxy = 828418E218C1193BF9EA6A97 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		4672B69815E193CCF86D4468 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 22W4844HWU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rahulsharma.healthlens.devTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HealthLens.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HealthLens";
+				TEST_TARGET_NAME = HealthLens;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		C2FA210B2F9F4D9000B17138 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -319,6 +457,37 @@
 			};
 			name = Release;
 		};
+		FD7735D423F3AB57DD810157 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 22W4844HWU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rahulsharma.healthlens.devTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HealthLens.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HealthLens";
+				TEST_TARGET_NAME = HealthLens;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -336,6 +505,15 @@
 			buildConfigurations = (
 				C2FA210B2F9F4D9000B17138 /* Debug */,
 				C2FA210C2F9F4D9000B17138 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4AF0DB2D1F6717BD749A5D3 /* Build configuration list for PBXNativeTarget "HealthLensTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4672B69815E193CCF86D4468 /* Release */,
+				FD7735D423F3AB57DD810157 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

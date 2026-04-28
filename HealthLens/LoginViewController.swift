@@ -71,13 +71,8 @@ final class LoginViewController: AuthScreenViewController {
             let email = emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
             let password = passwordField.text ?? ""
 
-            guard isValidEmail(email) else {
-                showMessage(AuthError.invalidEmail.localizedDescription, in: messageLabel)
-                return
-            }
-
-            guard password.count >= 8 else {
-                showMessage(AuthError.invalidPassword.localizedDescription, in: messageLabel)
+            if let validationError = AuthInputValidator.validateLogin(email: email, password: password) {
+                showMessage(validationError.localizedDescription, in: messageLabel)
                 return
             }
 
