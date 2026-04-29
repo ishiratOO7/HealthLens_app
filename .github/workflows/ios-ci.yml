@@ -1,0 +1,26 @@
+name: iOS CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: macos-15
+
+    steps:
+      - name: Check Out
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Build
+        run: xcodebuild build -project 'HealthLens.xcodeproj' -scheme 'HealthLens' -destination 'generic/platform=iOS' CODE_SIGNING_ALLOWED=NO
+
+      - name: Test
+        run: xcodebuild test -project 'HealthLens.xcodeproj' -scheme 'HealthLens' -destination 'platform=iOS Simulator,name=iPhone 16' CODE_SIGNING_ALLOWED=NO
