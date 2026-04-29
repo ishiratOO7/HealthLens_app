@@ -631,14 +631,63 @@ beautifully planned.</string>
                                 <viewLayoutGuide key="contentLayoutGuide" id="main-scroll-content-guide"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="main-scroll-frame-guide"/>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="main-tabbar">
+                                <rect key="frame" x="24" y="744" width="345" height="72"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="horizontal" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="main-tabbar-stack">
+                                        <rect key="frame" x="8" y="8" width="329" height="56"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="custom" lineBreakMode="middleTruncation" tag="0" translatesAutoresizingMaskIntoConstraints="NO" id="main-tab-button-0">
+                                                <rect key="frame" x="0.0" y="0.0" width="82.25" height="56"/>
+                                                <state key="normal" title="Home" image="house.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="tabBarItemTapped:" destination="B2C-34-def" eventType="touchUpInside" id="main-tab-button-0-action"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="custom" lineBreakMode="middleTruncation" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="main-tab-button-1">
+                                                <rect key="frame" x="82.25" y="0.0" width="82.25" height="56"/>
+                                                <state key="normal" title="Schedule" image="calendar" catalog="system"/>
+                                                <connections>
+                                                    <action selector="tabBarItemTapped:" destination="B2C-34-def" eventType="touchUpInside" id="main-tab-button-1-action"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="custom" lineBreakMode="middleTruncation" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="main-tab-button-2">
+                                                <rect key="frame" x="164.5" y="0.0" width="82.25" height="56"/>
+                                                <state key="normal" title="Activity" image="chart.bar.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="tabBarItemTapped:" destination="B2C-34-def" eventType="touchUpInside" id="main-tab-button-2-action"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="custom" lineBreakMode="middleTruncation" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="main-tab-button-3">
+                                                <rect key="frame" x="246.75" y="0.0" width="82.25" height="56"/>
+                                                <state key="normal" title="Profile" image="person.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="tabBarItemTapped:" destination="B2C-34-def" eventType="touchUpInside" id="main-tab-button-3-action"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99215686270000003" green="0.98039215690000003" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="main-tabbar-height"/>
+                                    <constraint firstItem="main-tabbar-stack" firstAttribute="leading" secondItem="main-tabbar" secondAttribute="leading" constant="8" id="main-tabbar-stack-leading"/>
+                                    <constraint firstAttribute="trailing" secondItem="main-tabbar-stack" secondAttribute="trailing" constant="8" id="main-tabbar-stack-trailing"/>
+                                    <constraint firstItem="main-tabbar-stack" firstAttribute="top" secondItem="main-tabbar" secondAttribute="top" constant="8" id="main-tabbar-stack-top"/>
+                                    <constraint firstAttribute="bottom" secondItem="main-tabbar-stack" secondAttribute="bottom" constant="8" id="main-tabbar-stack-bottom"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="main-safe-area"/>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="main-scroll" secondAttribute="bottom" id="main-scroll-bottom"/>
+                            <constraint firstItem="main-scroll" firstAttribute="bottom" secondItem="main-tabbar" secondAttribute="top" id="main-scroll-bottom"/>
                             <constraint firstItem="main-scroll" firstAttribute="leading" secondItem="main-root" secondAttribute="leading" id="main-scroll-leading"/>
                             <constraint firstAttribute="trailing" secondItem="main-scroll" secondAttribute="trailing" id="main-scroll-trailing"/>
                             <constraint firstItem="main-scroll" firstAttribute="top" secondItem="main-safe-area" secondAttribute="top" id="uNs-pr-r6L"/>
+                            <constraint firstItem="main-tabbar" firstAttribute="leading" secondItem="main-safe-area" secondAttribute="leading" constant="24" id="main-tabbar-leading"/>
+                            <constraint firstItem="main-safe-area" firstAttribute="trailing" secondItem="main-tabbar" secondAttribute="trailing" constant="24" id="main-tabbar-trailing"/>
+                            <constraint firstItem="main-safe-area" firstAttribute="bottom" secondItem="main-tabbar" secondAttribute="bottom" constant="8" id="main-tabbar-bottom"/>
                         </constraints>
                     </view>
                     <connections>
@@ -648,6 +697,11 @@ beautifully planned.</string>
                         <outlet property="heroCardView" destination="main-hero-card" id="main-outlet-hero-card"/>
                         <outlet property="progressBadgeView" destination="main-progress-badge" id="main-outlet-progress"/>
                         <outlet property="secondCardView" destination="main-card-two" id="main-outlet-card-two"/>
+                        <outlet property="tabBarView" destination="main-tabbar" id="main-outlet-tabbar"/>
+                        <outletCollection property="tabButtons" destination="main-tab-button-0" collectionClass="NSMutableArray" id="main-outlet-tab-button-0"/>
+                        <outletCollection property="tabButtons" destination="main-tab-button-1" collectionClass="NSMutableArray" id="main-outlet-tab-button-1"/>
+                        <outletCollection property="tabButtons" destination="main-tab-button-2" collectionClass="NSMutableArray" id="main-outlet-tab-button-2"/>
+                        <outletCollection property="tabButtons" destination="main-tab-button-3" collectionClass="NSMutableArray" id="main-outlet-tab-button-3"/>
                         <outlet property="thirdCardView" destination="main-card-three" id="main-outlet-card-three"/>
                     </connections>
                 </viewController>
