@@ -12,6 +12,8 @@ final class SignupViewController: AuthScreenViewController {
         static let primaryTitle = "Create Account"
         static let primaryLoadingTitle = "Creating Account"
         static let primarySystemImage = "checkmark.circle.fill"
+        static let temporaryAccessTitle = "Use Temporary Access"
+        static let temporaryAccessSystemImage = "person.crop.circle.badge.checkmark"
         static let secondaryTitle = "Back to Login"
         static let secondarySystemImage = "chevron.left"
     }
@@ -26,11 +28,18 @@ final class SignupViewController: AuthScreenViewController {
     @IBOutlet private weak var formCardView: UIView!
 
     private let authService = AuthServiceFactory.makeService()
+    private lazy var temporaryAccessButton = makeSecondaryActionButton(
+        title: Copy.temporaryAccessTitle,
+        systemImageName: Copy.temporaryAccessSystemImage,
+        target: self,
+        action: #selector(temporaryAccessButtonTapped)
+    )
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAppearance()
         configureInputs()
+        configureTemporaryAccess()
     }
 
     private func configureAppearance() {
@@ -71,12 +80,25 @@ final class SignupViewController: AuthScreenViewController {
         registerTextFields([nameField, emailField, passwordField, confirmPasswordField])
     }
 
+    private func configureTemporaryAccess() {
+        guard let formStackView = firstFormStackView(in: formCardView) else {
+            assertionFailure("Signup form stack view is missing.")
+            return
+        }
+
+        formStackView.insertArrangedSubview(temporaryAccessButton, at: 6)
+    }
+
     @IBAction private func primaryButtonTapped(_ sender: UIButton) {
         createAccount()
     }
 
     @IBAction private func secondaryButtonTapped(_ sender: UIButton) {
         goBackToLogin()
+    }
+
+    @objc private func temporaryAccessButtonTapped() {
+        healthLens_showMainDashboard()
     }
 
     private func createAccount() {
@@ -100,7 +122,7 @@ final class SignupViewController: AuthScreenViewController {
 
             setLoading(
                 true,
-                controls: [nameField, emailField, passwordField, confirmPasswordField],
+                controls: [nameField, emailField, passwordField, confirmPasswordField, temporaryAccessButton],
                 primaryButton: primaryButton,
                 secondaryButton: secondaryButton,
                 primaryTitle: Copy.primaryTitle,
@@ -113,7 +135,7 @@ final class SignupViewController: AuthScreenViewController {
 
             do {
                 _ = try await authService.signup(name: name, email: email, password: password)
-                showMainPlaceholder()
+                healthLens_showMainDashboard()
             } catch is CancellationError {
                 // Ignore cancellation.
             } catch let error as LocalizedError {
@@ -124,7 +146,7 @@ final class SignupViewController: AuthScreenViewController {
 
             setLoading(
                 false,
-                controls: [nameField, emailField, passwordField, confirmPasswordField],
+                controls: [nameField, emailField, passwordField, confirmPasswordField, temporaryAccessButton],
                 primaryButton: primaryButton,
                 secondaryButton: secondaryButton,
                 primaryTitle: Copy.primaryTitle,
@@ -151,17 +173,5 @@ final class SignupViewController: AuthScreenViewController {
         }
 
         healthLens_replaceRootViewController(with: loginViewController)
-    }
-
-    private func showMainPlaceholder() {
-        guard let mainViewController = healthLens_instantiateStoryboardViewController(
-            withIdentifier: "MainViewController",
-            as: ViewController.self
-        ) else {
-            assertionFailure("MainViewController scene is missing from Main.storyboard.")
-            return
-        }
-
-        healthLens_replaceRootViewController(with: mainViewController)
     }
 }

@@ -8,6 +8,10 @@
 import UIKit
 
 extension UIViewController {
+    private enum HealthLensStoryboardIdentifier {
+        static let homeViewController = "HomeViewController"
+    }
+
     func healthLens_instantiateStoryboardViewController<T: UIViewController>(
         withIdentifier identifier: String,
         as type: T.Type = T.self
@@ -37,5 +41,17 @@ extension UIViewController {
     func healthLens_presentFullScreen(_ viewController: UIViewController, animated: Bool = true) {
         viewController.modalPresentationStyle = .fullScreen
         present(viewController, animated: animated)
+    }
+
+    func healthLens_showMainDashboard(duration: TimeInterval = 0.35) {
+        guard let homeViewController = healthLens_instantiateStoryboardViewController(
+            withIdentifier: HealthLensStoryboardIdentifier.homeViewController,
+            as: HomeViewController.self
+        ) else {
+            assertionFailure("MainViewController scene is missing from Main.storyboard.")
+            return
+        }
+
+        healthLens_replaceRootViewController(with: homeViewController, duration: duration)
     }
 }

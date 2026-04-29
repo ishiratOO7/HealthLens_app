@@ -101,6 +101,25 @@ class AuthScreenViewController: UIViewController, UITextFieldDelegate {
         button.configuration = configuration
     }
 
+    func makeSecondaryActionButton(
+        title: String,
+        systemImageName: String? = nil,
+        target: Any?,
+        action: Selector,
+        height: CGFloat = 48
+    ) -> UIButton {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        styleSecondaryButton(button, title: title, systemImageName: systemImageName)
+        button.addTarget(target, action: action, for: .touchUpInside)
+        button.heightAnchor.constraint(equalToConstant: height).isActive = true
+        return button
+    }
+
+    func firstFormStackView(in containerView: UIView) -> UIStackView? {
+        containerView.subviews.first { $0 is UIStackView } as? UIStackView
+    }
+
     func setLoading(
         _ loading: Bool,
         controls: [UIControl],

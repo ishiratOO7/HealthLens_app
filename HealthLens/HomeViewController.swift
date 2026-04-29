@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class HomeViewController: UIViewController {
     @IBOutlet private weak var heroCardView: UIView!
     @IBOutlet private weak var heroButton: UIButton!
     @IBOutlet private weak var progressBadgeView: UIView!

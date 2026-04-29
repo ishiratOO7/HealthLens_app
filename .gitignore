@@ -6,3 +6,5 @@ build/
 *.xcresult
 *.xccheckout
 *.xcscmblueprint
+# Added by code-review-graph
+.code-review-graph/

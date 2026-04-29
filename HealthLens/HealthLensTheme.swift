@@ -175,6 +175,8 @@ enum HealthLensTheme {
         field.layer.borderWidth = 1
         field.layer.borderColor = Colors.border.cgColor
         field.layer.masksToBounds = true
+        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 18, height: 1))
+        field.leftViewMode = .always
     }
 
     static func textAttributesTransformer(font: UIFont, color: UIColor? = nil) -> UIConfigurationTextAttributesTransformer {

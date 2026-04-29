@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A1B-23-cde">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A1B-23-cde">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -395,16 +395,16 @@ beautifully planned.</string>
             </objects>
             <point key="canvasLocation" x="583" y="149"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="main-scene">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="B2C-34-def" customClass="ViewController" customModule="HealthLens" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="B2C-34-def" customClass="HomeViewController" customModule="HealthLens" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="main-root">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="main-scroll">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="118" width="393" height="734"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="main-content">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="762.33333333333337"/>
@@ -425,13 +425,13 @@ beautifully planned.</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Track the essentials with a warm, easy-to-scan layout." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="main-subtitle">
-                                                        <rect key="frame" x="0.0" y="134.33333333333334" width="345" height="45"/>
+                                                        <rect key="frame" x="0.0" y="134.33333333333331" width="345" height="45"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                         <color key="textColor" red="0.45098039220000002" green="0.50196078430000002" blue="0.5098039216000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="main-hero-card">
-                                                        <rect key="frame" x="0.0" y="195.33333333333337" width="345" height="180"/>
+                                                        <rect key="frame" x="0.0" y="195.33333333333331" width="345" height="180"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Great, your day's plan almost done" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="main-hero-title">
                                                                 <rect key="frame" x="20" y="22" width="359" height="28"/>
@@ -440,17 +440,17 @@ beautifully planned.</string>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="A calm start with the most important steps already in motion." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="main-hero-subtitle">
-                                                                <rect key="frame" x="20" y="61.999999999999972" width="209" height="63"/>
+                                                                <rect key="frame" x="20" y="62" width="209" height="63"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                                 <color key="textColor" red="0.99215686270000003" green="0.94901960779999994" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="main-hero-button">
-                                                                <rect key="frame" x="20" y="131.99999999999997" width="66" height="30"/>
+                                                                <rect key="frame" x="20" y="132" width="66" height="30"/>
                                                                 <state key="normal" title="View task"/>
                                                             </button>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="main-progress-badge">
-                                                                <rect key="frame" x="245" y="49.999999999999972" width="80" height="80"/>
+                                                                <rect key="frame" x="245" y="50" width="80" height="80"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="80%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="main-progress-value">
                                                                         <rect key="frame" x="16" y="16.666666666666686" width="48" height="31"/>
@@ -490,13 +490,13 @@ beautifully planned.</string>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Today's Schedule" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="main-schedule-title">
-                                                        <rect key="frame" x="0.0" y="391.33333333333331" width="345" height="31"/>
+                                                        <rect key="frame" x="0.0" y="391.33333333333337" width="345" height="31"/>
                                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="22"/>
                                                         <color key="textColor" red="0.078431372550000003" green="0.23921568630000001" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="main-row-one">
-                                                        <rect key="frame" x="0.0" y="438.33333333333331" width="345" height="123.99999999999994"/>
+                                                        <rect key="frame" x="0.0" y="438.33333333333337" width="345" height="124"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="main-card-one">
                                                                 <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="124"/>
@@ -508,7 +508,7 @@ beautifully planned.</string>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="07:00 - 08:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="main-card-one-subtitle">
-                                                                        <rect key="frame" x="16" y="63.000000000000064" width="84" height="18.333333333333336"/>
+                                                                        <rect key="frame" x="16" y="63.000000000000007" width="84" height="18.333333333333336"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
                                                                         <color key="textColor" red="0.45098039220000002" green="0.50196078430000002" blue="0.5098039216000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -532,7 +532,7 @@ beautifully planned.</string>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="08:00 - 10:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="main-card-two-subtitle">
-                                                                        <rect key="frame" x="16" y="63.000000000000064" width="81" height="18.333333333333336"/>
+                                                                        <rect key="frame" x="16" y="63.000000000000007" width="81" height="18.333333333333336"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
                                                                         <color key="textColor" red="0.45098039220000002" green="0.50196078430000002" blue="0.5098039216000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -637,8 +637,8 @@ beautifully planned.</string>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="main-scroll" secondAttribute="bottom" id="main-scroll-bottom"/>
                             <constraint firstItem="main-scroll" firstAttribute="leading" secondItem="main-root" secondAttribute="leading" id="main-scroll-leading"/>
-                            <constraint firstItem="main-scroll" firstAttribute="top" secondItem="main-root" secondAttribute="top" id="main-scroll-top"/>
                             <constraint firstAttribute="trailing" secondItem="main-scroll" secondAttribute="trailing" id="main-scroll-trailing"/>
+                            <constraint firstItem="main-scroll" firstAttribute="top" secondItem="main-safe-area" secondAttribute="top" id="uNs-pr-r6L"/>
                         </constraints>
                     </view>
                     <connections>
@@ -653,7 +653,7 @@ beautifully planned.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="main-first-responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1498" y="149"/>
+            <point key="canvasLocation" x="1433" y="149"/>
         </scene>
     </scenes>
 </document>
