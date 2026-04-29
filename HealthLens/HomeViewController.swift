@@ -16,6 +16,11 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var thirdCardView: UIView!
     @IBOutlet private weak var fourthCardView: UIView!
 
+    @IBOutlet private weak var tabBarView: UIView!
+    @IBOutlet private var tabButtons: [UIButton]!
+
+    private var selectedTabIndex = 0
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .darkContent
     }
@@ -29,6 +34,7 @@ final class HomeViewController: UIViewController {
         view.backgroundColor = HealthLensTheme.Colors.background
         view.tintColor = HealthLensTheme.Colors.gold
         styleDashboard()
+        styleTabBar()
     }
 
     private func styleDashboard() {
@@ -60,5 +66,56 @@ final class HomeViewController: UIViewController {
             color: HealthLensTheme.Colors.tealDark
         )
         heroButton.configuration = configuration
+    }
+
+    private func styleTabBar() {
+        tabButtons = tabButtons.sorted { $0.tag < $1.tag }
+
+        tabBarView.backgroundColor = HealthLensTheme.Colors.surface
+        tabBarView.layer.cornerRadius = 28
+        tabBarView.layer.cornerCurve = .continuous
+        tabBarView.layer.borderWidth = 1
+        tabBarView.layer.borderColor = HealthLensTheme.Colors.border.cgColor
+        tabBarView.layer.shadowColor = HealthLensTheme.Colors.shadow.cgColor
+        tabBarView.layer.shadowOpacity = 0.18
+        tabBarView.layer.shadowRadius = 22
+        tabBarView.layer.shadowOffset = CGSize(width: 0, height: 12)
+        tabBarView.layer.masksToBounds = false
+
+        tabButtons.forEach(configureTabButton(_:))
+        selectTab(at: selectedTabIndex)
+    }
+
+    private func configureTabButton(_ button: UIButton) {
+        var configuration = UIButton.Configuration.plain()
+        configuration.title = button.title(for: .normal)
+        configuration.image = button.image(for: .normal)
+        configuration.imagePlacement = .top
+        configuration.imagePadding = 4
+        configuration.titleAlignment = .center
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 6, leading: 4, bottom: 6, trailing: 4)
+        configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 20, weight: .medium)
+        configuration.titleTextAttributesTransformer = HealthLensTheme.textAttributesTransformer(
+            font: HealthLensTheme.Fonts.bodyMedium(11)
+        )
+        button.configuration = configuration
+    }
+
+    @IBAction private func tabBarItemTapped(_ sender: UIButton) {
+        selectTab(at: sender.tag)
+    }
+
+    private func selectTab(at index: Int) {
+        guard tabButtons.indices.contains(index) else { return }
+        selectedTabIndex = index
+
+        for button in tabButtons {
+            let isSelected = button.tag == index
+            let color = isSelected ? HealthLensTheme.Colors.tealDark : HealthLensTheme.Colors.textSecondary
+            var configuration = button.configuration
+            configuration?.baseForegroundColor = color
+            button.configuration = configuration
+            button.tintColor = color
+        }
     }
 }
