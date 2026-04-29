@@ -6,39 +6,31 @@
 //
 
 import Foundation
-public protocol SectionViewModelProtocol: AnyObject {
-    var items: [ItemViewModelProtocol] { get set }
-
-    func numberOfRows() -> Int
-    func item(at index: Int) -> ItemViewModelProtocol
-
-    func insertItem(_ item: ItemViewModelProtocol, at index: Int)
-    func deleteItem(at index: Int) -> ItemViewModelProtocol
+public protocol SectionViewModelProtocol {
+    var items:[ItemViewModelProtocol] { get set }
+    func numberOfRowIn() -> Int
+    func itemForRow(index: Int) -> ItemViewModelProtocol
+    mutating func insetIteamAt(row:Int, item: ItemViewModelProtocol)
+    mutating func deleteIteamAt(row:Int) ->ItemViewModelProtocol
 }
 
-final class SectionViewModel: SectionViewModelProtocol {
-
-    var items: [ItemViewModelProtocol] = []
-
-    init(items: [ItemViewModelProtocol] = []) {
-        self.items = items
-    }
-
-    func numberOfRows() -> Int {
+public extension SectionViewModelProtocol {
+    func numberOfRowIn() -> Int {
         return items.count
     }
-
-    func item(at index: Int) -> ItemViewModelProtocol {
+    func itemForRow(index: Int) -> ItemViewModelProtocol {
         return items[index]
     }
-
-    func insertItem(_ item: ItemViewModelProtocol, at index: Int) {
-        items.insert(item, at: index)
+    mutating func insetIteamAt(row:Int, item: ItemViewModelProtocol) {
+        items.insert(item, at: row)
+    }
+    mutating func deleteIteamAt(row:Int) ->ItemViewModelProtocol {
+        return items.remove(at: row)
     }
 
-    func deleteItem(at index: Int) -> ItemViewModelProtocol {
-        return items.remove(at: index)
-    }
 }
 
 
+class DefaultSectionViewModel: SectionViewModelProtocol {
+    var items: [ItemViewModelProtocol] = []
+}
